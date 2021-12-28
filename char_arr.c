@@ -8,9 +8,7 @@ int	main()
 	char	str[] = "hello";
 	char	*str1 = "heh\0";
 	char	str2[5];
-	int	*i = (int *)str1;
 
-	printf("i %d", i[0]);
 	p(str);
 	p(str1);
 	/*while (i < 6)
