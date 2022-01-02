@@ -1,5 +1,5 @@
 .DEFAULT_GOAL = all
-NAME	::= learn
+NAME	::= learn.out
 SDIR	::= ./src
 ODIR	::= ./bin
 SRCS	::= $(shell find $(SDIR) -name '*.c' -print)
@@ -13,7 +13,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 $(ODIR)/%.o: $(SDIR)/%.c
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c -o $@ $< -MD -MP
+	$(CC) $(CFLAGS) -c -o $@ $< -MMD -MP
 -include $(DEPS)
 .PHONY: clean
 clean:
