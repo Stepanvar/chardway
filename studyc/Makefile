@@ -1,20 +1,23 @@
 .DEFAULT_GOAL = all
-NAME	::= project
+NAME	::= learn
 SDIR	::= ./src
 ODIR	::= ./bin
-DDIR	::= ./inc
 SRCS	::= $(shell find $(SDIR) -name '*.c' -print)
 OBJS	::= $(patsubst $(SDIR)/%.c, $(ODIR)/%.o, $(SRCS))
-DEPS	= $(OBJS:$(ODIR)/%.o=$(DDIR)/%.d)
-CC	::= gcc
+DEPS	::= $(addsuffix .d, $(basename $(OBJS)))
 CFLAGS	::= -Wall -Wextra -g $(AFL)
+CC	::= gcc
+.PHONY: all
 all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 $(ODIR)/%.o: $(SDIR)/%.c
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c -o $@ $< -MP -MMD
+	$(CC) $(CFLAGS) -c -o $@ $< -MD -MP
 -include $(DEPS)
 .PHONY: clean
 clean:
-	rm -rf $(NAME) $(OBJS) $(DEPS)
+	rm -rf $(OBJS)
+.PHONY: fclean
+fclean: clean
+	rm -rf $(NAME) $(DEPS)
