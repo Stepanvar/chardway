@@ -2,7 +2,7 @@
 NAME	::= learn.out
 SDIR	::= ./src
 ODIR	::= ./bin
-SRCS	::= $(shell find $(SDIR) -name '*.c' -print)
+SRCS	::= $(shell find $(SDIR) -name '*.c')
 OBJS	::= $(patsubst $(SDIR)/%.c, $(ODIR)/%.o, $(SRCS))
 DEPS	::= $(addsuffix .d, $(basename $(OBJS)))
 CFLAGS	::= -Wall -Wextra -g $(AFL)

@@ -28,10 +28,10 @@ int	ft_ex03(int argc, char *argv[])
 	return (0);
 }
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
 	int	i;
-	int	num;
+	long	num;
 
 	i = 0;
 	num = 0;
