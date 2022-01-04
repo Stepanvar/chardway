@@ -37,7 +37,7 @@ static long	find_max_num(long num, long mult)
 		return(find_max_num(num + j * mult, mult / 10));
 }
 
-int	ft_find_max(void)
+long	ft_find_max(void)
 {
 	long	max_mult;
 	long	num;
