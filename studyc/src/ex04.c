@@ -53,6 +53,25 @@ static double	def_amount(void)
 	return (mana_amount);
 }
 
+static void	ft_play_with_types(void)
+{
+	long	lng;
+	int	i;
+	float	flt;
+
+	i = 1;
+	lng = 10;
+	while (i < 12)
+	{
+		lng = i * 10 * lng;
+		flt = lng + 0.1f;
+		printf("%d\n", i);
+		i++;
+		printf("%ld\n", lng);
+		printf("%f\n", flt);
+	}
+}
+
 int	ft_types(char *str)
 {
 	srand(time(0));
@@ -66,6 +85,7 @@ int	ft_types(char *str)
 	person_used = ft_atoi(str);
 	percent = (person_used / magic_amount) * 100;
 	ft_print_rank(percent);
+	ft_play_with_types();
 	return (0);
 }
 

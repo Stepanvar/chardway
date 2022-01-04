@@ -1,22 +1,22 @@
 #include "stdio.h"
-static int	find_max_mult(void)
+static long	find_max_mult(void)
 {
-	int	i;
-	int	max_mult;
+	long	i;
+	long	max_mult;
 
 	max_mult = 10;
 	i = 0;
-	while (i > 0)
+	while (i >= 0)
 	{
-		i = 10 * max_mult;
 		max_mult *= 10;
+		i = 10 * max_mult;
 	}
 	return (max_mult);
 }
 
-static int	find_max_num(int num, int mult)
+static long	find_max_num(long num, long mult)
 {
-	int	j;
+	long	j;
 
 	j = 5;
 	if (num + j * mult >= 0)
@@ -32,18 +32,19 @@ static int	find_max_num(int num, int mult)
 		j++;
 	}
 	if (mult == 1)
-		return (num + j * mult);
+		return (num + j * mult - 1);
 	else
-		return(find_max_num(j * mult, mult / 10));
+		return(find_max_num(num + j * mult, mult / 10));
 }
 
-void	ft_find_max(void)
+int	ft_find_max(void)
 {
-	int	max_mult;
-	int	num;
+	long	max_mult;
+	long	num;
 
 	max_mult = find_max_mult();
 	num = find_max_num(0, max_mult);
-	printf("%d\n", num);	
+	printf("%ld\n", num);
+	return (num);
 }
 
