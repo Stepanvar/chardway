@@ -2,6 +2,7 @@
 #include "stdio.h"
 #include "time.h"
 #include "stdlib.h"
+#include "limits.h"
 
 static void	ft_print_rank(double percent)
 {
@@ -55,21 +56,18 @@ static double	def_amount(void)
 
 static void	ft_play_with_types(void)
 {
-	long	lng;
 	int	i;
+	long	lng;
 	float	flt;
 
 	i = 1;
-	lng = 10;
-	while (i < 12)
-	{
-		lng = i * 10 * lng;
-		flt = lng + 0.1f;
-		printf("%d\n", i);
-		i++;
-		printf("%ld\n", lng);
-		printf("%f\n", flt);
-	}
+	lng = 1;
+	flt =(float) 8 / 3;
+	lng = i * 10 * lng;
+	printf("%d\n", i);
+	i++;
+	printf("%ld\n", lng);
+	printf("%f\n", flt);
 }
 
 int	ft_types(char *str)

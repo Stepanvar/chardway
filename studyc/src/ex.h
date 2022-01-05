@@ -8,4 +8,6 @@ int	ft_ex03(int argc, char *argv[]);
 int	ft_isnum(char c);
 int	ft_putstr(char *str);
 int	ft_types(char *str);
+int	ft_arrays(void);
+int	ft_print_num(int num);
 #endif
