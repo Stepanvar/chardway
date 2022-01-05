@@ -32,14 +32,40 @@ void	ft_print_iarr(int ar[], int len)
 	i = 0;
 	while (i < len)
 	{
-		printf("%d\t", ar[i]);
 		ft_print_num(ar[i]);
+		write(1, "\n", 1);
+		i++;
+	}
+	write(1, "\n", 1);
+}
+
+static void ft_fill_iarr(int ar[], int length)
+{
+	srand(time(0));
+	int	i;
+
+	i = 0;
+	while (i < length)
+	{
+		ar[i] = rand();
+		i++;
+	}
+}
+
+static void	ft_print_carr(char ar[], int length)
+{
+	int	i;
+
+	i = 0;
+	while (i < length)
+	{
+		write(1, &(ar[i]), 1);
 		write(1, "\n", 1);
 		i++;
 	}
 }
 
-static void	ft_fill_arr(int ar[], int len)
+static void	ft_fill_carr(char ar[], int len)
 {
 	int	i;
 
@@ -47,7 +73,7 @@ static void	ft_fill_arr(int ar[], int len)
 	srand(time(0));
 	while (i < len)
 	{
-		ar[i] = rand() % 128;
+		ar[i] = rand() % 94 + 32;
 		i++;
 	}
 
@@ -88,11 +114,14 @@ int	ft_arrays(void)
 {
 	int	len = 5;
 	int	iar1[len];
+	char	car1[len];
 	int	*iars;
 	int	*iarh;
 	
-	ft_fill_arr(iar1, len);
+	ft_fill_iarr(iar1, len);
 	ft_print_iarr(iar1, len);
+	ft_fill_carr(car1, len);
+	ft_print_carr(car1, len);
 	iarh = ft_fill_arr_heap();
 	iars = ft_fill_arr_stack();
 	//put_ascii();
