@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ccurie <ccurie@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/06 12:46:11 by ccurie            #+#    #+#             */
+/*   Updated: 2022/01/06 12:48:03 by ccurie           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "stdio.h"
 #include "unistd.h"
@@ -13,7 +25,7 @@ int	ft_isnum(char c)
 
 long	ft_atoi(char *str)
 {
-	int	i;
+	int		i;
 	long	num;
 
 	i = 0;
@@ -34,7 +46,7 @@ long	ft_atoi(char *str)
 int	ft_print_num(int num)
 {
 	char	c;
-	int	rem;
+	int		rem;
 
 	rem = 0;
 	if (num / 10 == 0)
@@ -89,7 +101,6 @@ void	ft_int_prints(int i)
 	printf("10 %10d\n", i);
 	printf("-+10 %-+10d\n", i);
 	printf("-010 %-010d\n", i);
-
 }
 
 void	ft_p_field(void)
@@ -107,7 +118,8 @@ void	ft_p_field(void)
 
 void	ft_field(char *arg)
 {
-	t_s s;
+	t_s	s;
+
 	if (!*arg)
 		return ;
 	s = ft_init_s(s, arg);
@@ -158,10 +170,10 @@ void	ft_split(t_s s)
 t_s	ft_handle_width(t_s s)
 {
 	char	*dest;
-	int	i;
+	int		i;
 
 	i = 0;
-	dest =(char *) malloc(10 * sizeof(char));
+	dest = (char *)malloc(10 * sizeof(char));
 	while (ft_isnum(*(s.arg)))
 	{
 		dest[i] = *(s.arg);
@@ -203,7 +215,7 @@ void	ft_handling_justif(t_s s, char *str) //real string
 void	ft_right_justif(t_s s, char *str)
 {
 	char	str1[s.width + 1];
-	int	i;
+	int		i;
 
 	i = 0;
 	while (i < s.width)
@@ -213,20 +225,18 @@ void	ft_right_justif(t_s s, char *str)
 			str1[i] = '0';
 			i++;
 		}
-
 		str1[i] = *str;
 		i++;
 		str++;
 	}
 	str1[i] = '\0';
 	ft_putstr(str1);
-
 }
 
 void	ft_left_justif(t_s s, char *str)
 {
 	char	str1[s.width + 1];
-	int	i;
+	int		i;
 
 	i = 0;
 	while (i < s.width)

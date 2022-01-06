@@ -1,10 +1,10 @@
-NAME	= ft_printf
+NAME	= test
 ODIR	= ./bin
 SDIR	= ./src
 SRCS	= $(shell find $(SDIR) -name '*.c')
 OBJS	= $(patsubst $(SDIR)/%.c, $(ODIR)/%.o, $(SRCS))
 DEPS	= $(addsuffix .d, $(basename $(OBJS)))
-CFLAGS	= -Wall -Wextra -Werror -g $(BSIZE)
+CFLAGS	= -Wall -Wextra -g $(BSIZE)
 BSIZE	= -D BUFFER_SIZE=42
 RM		= rm -rf
 CC		= gcc 

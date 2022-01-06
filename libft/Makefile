@@ -1,4 +1,4 @@
-NAME	= ft_printf
+NAME	= libft
 ODIR	= ./bin
 SDIR	= ./src
 SRCS	= $(shell find $(SDIR) -name '*.c')
@@ -11,7 +11,7 @@ CC		= gcc
 .PHONY: all
 all: $(NAME)
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+	ar rcs $(NAME) $?
 
 $(ODIR)/%.o: $(SDIR)/%.c
 	mkdir -p $(dir $@)
