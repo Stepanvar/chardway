@@ -6,7 +6,7 @@
 /*   By: ccurie <ccurie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 12:23:29 by ccurie            #+#    #+#             */
-/*   Updated: 2022/01/06 23:18:54 by ccurie           ###   ########.fr       */
+/*   Updated: 2022/01/07 15:53:32 by ccurie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,6 @@ size_t	ft_strlen(const char *s)
 	while (s[count])
 		count++;
 	return (count);
-}
-
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		write(1, &(str[i]), 1);
-		i++;
-	}
-	write(1, "\n", 1);
 }
 
 char	*ft_strchr(const char *s, int c)
