@@ -1,7 +1,7 @@
 NAME	= ft_printf
 ODIR	= ./bin
-SDIR	=	./src
-SRCS	=	$(shell find $(SDIR) -name '*.c')
+SDIR	= ./src
+SRCS	= $(shell find $(SDIR) -name '*.c')
 OBJS	= $(patsubst $(SDIR)/%.c, $(ODIR)/%.o, $(SRCS))
 DEPS	= $(addsuffix .d, $(basename $(OBJS)))
 CFLAGS	= -Wall -Wextra -Werror -g $(BSIZE)
